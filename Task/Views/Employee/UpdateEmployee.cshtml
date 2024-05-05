@@ -1,0 +1,87 @@
+﻿@model Employee
+
+@{
+    ViewData["Title"] = "Update Employee";
+    List<Department> depts = ViewBag.Departments as List<Department>;
+    List<User> users = ViewBag.Users as List<User>;
+    SelectList deptList = new SelectList(depts, "ID", "Name");
+    SelectList userList = new SelectList(users, "ID", "Name");
+}
+
+<h1>Update Employee</h1>
+
+<form asp-action="UpdateEmployee" method="post">
+    <div class="form-group">
+        <label asp-for="Name">Name:</label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="DateOfBirth">Date of Birth:</label>
+        <input asp-for="DateOfBirth" type="date" class="form-control" />
+        <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Mobile">Mobile:</label>
+        <input asp-for="Mobile" class="form-control" />
+        <span asp-validation-for="Mobile" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Email">Email:</label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="HireDate">Hire Date:</label>
+        <input asp-for="HireDate" type="date" class="form-control" />
+        <span asp-validation-for="HireDate" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Salary">Salary:</label>
+        <input asp-for="Salary" class="form-control" />
+        <span asp-validation-for="Salary" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ProfileImg">Profile Image:</label>
+        <input asp-for="ProfileImg" class="form-control" />
+        <span asp-validation-for="ProfileImg" class="text-danger"></span>
+    </div>
+
+  
+
+    <div class="form-group">
+        <label asp-for="ModifiedDate">Modified Date:</label>
+        <input asp-for="ModifiedDate" type="date" class="form-control" />
+        <span asp-validation-for="ModifiedDate" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="CreatedBy">Created By:</label>
+        <select class="w-100" name="CreatedBy" asp-items="userList">
+        </select>
+        <span asp-validation-for="CreatedBy" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ModifaiedBy">Modified By:</label>
+        <select class="w-100" name="ModifaiedBy" asp-items="userList">
+        </select>
+
+        <span asp-validation-for="ModifaiedBy" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="DepartmentID">Department:</label>
+        <select class="w-100" name="DepartmentID" asp-items="deptList">
+        </select>
+        <span asp-validation-for="DepartmentID" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update Employee</button>
+</form>

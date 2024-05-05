@@ -1,0 +1,7 @@
+
+**/Migrations/*.cs
+**/Migrations/*.Designer.cs
+**/Migrations/*.resx
+
+
+.vs/
